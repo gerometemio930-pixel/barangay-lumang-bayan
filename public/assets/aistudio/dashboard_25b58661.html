@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Barangay Lumang Bayan Portal</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/portal.js" defer></script>
+</head>
+<body>
+  <div id="dashboardRoot">
+    <header class="app-header">
+      <div class="header-brand">
+        <div class="seal">LB</div>
+        <div>
+          <div>Barangay Lumang Bayan</div>
+          <small class="muted">Online Services Portal</small>
+        </div>
+      </div>
+      <div class="header-user">
+        <span id="currentUsername">Loading account...</span>
+        <button id="logoutBtn" class="secondary-button" type="button">
+          Sign Out
+        </button>
+      </div>
+    </header>
+
+    <main class="dashboard-layout">
+      <section class="welcome-row">
+        <div>
+          <p class="eyebrow">BARANGAY E-SERVICES</p>
+          <h1 id="welcomeTitle">Dashboard</h1>
+          <p id="welcomeSubtitle">Loading your account...</p>
+        </div>
+        <span id="currentRole" class="status">Loading role</span>
+      </section>
+
+      <section class="stats-grid" aria-label="Request summary">
+        <article class="stat-card">
+          <span class="stat-label">Total Requests</span>
+          <strong id="statTotal">0</strong>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Pending / Processing</span>
+          <strong id="statPending">0</strong>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Approved</span>
+          <strong id="statApproved">0</strong>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Announcements</span>
+          <strong id="statAnnouncements">0</strong>
+        </article>
+      </section>
+
+      <section id="residentView" class="content-grid" hidden>
+        <div>
+          <section id="residentRequestPanel" class="panel">
+            <div class="panel-heading">
+              <h2>Request a Barangay Service</h2>
+            </div>
+            <p class="muted">
+              Fill out the form below. The barangay office may contact you
+              if additional documents are needed.
+            </p>
+
+            <form id="requestForm" class="request-form">
+              <label for="serviceType">Type of Service</label>
+              <select id="serviceType" required>
+                <option value="">Select a service</option>
+                <option value="Barangay Clearance">Barangay Clearance</option>
+                <option value="Certificate of Residency">Certificate of Residency</option>
+                <option value="Certificate of Indigency">Certificate of Indigency</option>
+                <option value="Business Clearance">Business Clearance</option>
+                <option value="Other Request">Other Request</option>
+              </select>
+
+              <label for="requestPurpose">Purpose of Request</label>
+              <input id="requestPurpose" type="text" maxlength="500"
+                placeholder="Example: School requirement" required>
+
+              <label for="requestDetails">Additional Details</label>
+              <textarea id="requestDetails" maxlength="2000"
+                placeholder="Include any relevant information or requirements."></textarea>
+
+              <button class="primary-button" type="submit">
+                Submit Request
+              </button>
+            </form>
+          </section>
+
+          <section class="panel">
+            <div class="panel-heading">
+              <h2>My Requests</h2>
+            </div>
+            <div id="residentRequestList" class="request-list">
+              <p class="empty-state">Loading requests...</p>
+            </div>
+          </section>
+        </div>
+
+        <aside>
+          <section class="panel">
+            <div class="panel-heading">
+              <h2>Barangay Announcements</h2>
+            </div>
+            <div id="announcementList" class="announcement-list">
+              <p class="empty-state">Loading announcements...</p>
+            </div>
+          </section>
+
+          <section class="panel">
+            <h2>Request Status Guide</h2>
+            <p><span class="status">Pending</span> — Waiting for review.</p>
+            <p><span class="status processing">Processing</span> — Being reviewed by the office.</p>
+            <p><span class="status waiting">Waiting for Captain signature</span> — Awaiting the required signature.</p>
+            <p><span class="status approved">Approved</span> — Approved by the authorized official.</p>
+            <p><span class="status completed">Completed</span> — Marked complete by the office.</p>
+          </section>
+        </aside>
+      </section>
+
+      <section id="adminView" hidden>
+        <section class="panel">
+          <div class="panel-heading">
+            <h2>All Resident Requests</h2>
+            <button class="secondary-button" type="button"
+              onclick="window.location.reload()">Refresh</button>
+          </div>
+          <p class="muted">
+            Review requests and update the status when appropriate.
+            Verify the actual documents and requirements at the barangay office.
+          </p>
+          <div id="adminRequestList" class="request-list">
+            <p class="empty-state">Loading resident requests...</p>
+          </div>
+        </section>
+
+        <section id="adminAnnouncementPanel" class="panel">
+          <div class="panel-heading">
+            <h2>Publish an Announcement</h2>
+          </div>
+          <form id="announcementForm" class="admin-form">
+            <label for="announcementTitle">Announcement Title</label>
+            <input id="announcementTitle" type="text" maxlength="150"
+              placeholder="Example: Office Schedule Update" required>
+
+            <label for="announcementBody">Announcement Details</label>
+            <textarea id="announcementBody" maxlength="3000"
+              placeholder="Write the announcement here..." required></textarea>
+
+            <button class="primary-button" type="submit">
+              Publish Announcement
+            </button>
+          </form>
+        </section>
+
+        <section class="panel">
+          <div class="panel-heading">
+            <h2>Current Announcements</h2>
+          </div>
+          <div id="announcementList" class="announcement-list">
+            <p class="empty-state">Loading announcements...</p>
+          </div>
+        </section>
+      </section>
+
+      <footer class="footer-note">
+        Barangay Lumang Bayan Portal · Student prototype for educational use
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

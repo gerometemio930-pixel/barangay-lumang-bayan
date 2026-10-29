@@ -1,0 +1,6 @@
+{
+  "name": "Barangay Lumang Bayan Online Services Portal",
+  "description": "Comprehensive e-services, certificate issuance, request management, and civic portal for Barangay Lumang Bayan, Occidental Mindoro.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

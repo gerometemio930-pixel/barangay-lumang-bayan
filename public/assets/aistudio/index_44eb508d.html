@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barangay Lumang Bayan Portal</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/portal.js" defer></script>
+</head>
+<body class="auth-page">
+  <main class="auth-shell">
+    <section class="brand-panel">
+      <div class="seal">LB</div>
+      <p class="eyebrow">BARANGAY LUMANG BAYAN</p>
+      <h1>Serbisyo para sa bawat mamamayan.</h1>
+      <p class="brand-description">
+        A simple online portal for barangay services, certificate requests,
+        announcements, and request tracking.
+      </p>
+      <div class="brand-footer">Barangay Lumang Bayan · Occidental Mindoro</div>
+    </section>
+
+    <section class="auth-panel">
+      <div class="mobile-brand">
+        <div class="seal small-seal">LB</div>
+        <span>Barangay Lumang Bayan</span>
+      </div>
+
+      <div id="loginSection">
+        <p class="eyebrow">WELCOME BACK</p>
+        <h2>Sign in to your account</h2>
+        <p class="muted">Enter your email or username and password.</p>
+
+        <form id="loginForm">
+          <label for="loginIdentifier">Email or Username</label>
+          <input id="loginIdentifier" name="identifier"
+                 type="text" placeholder="Enter email or username"
+                 autocomplete="username" required>
+
+          <label for="loginPassword">Password</label>
+          <input id="loginPassword" name="password"
+                 type="password" placeholder="Enter your password"
+                 autocomplete="current-password" required>
+
+          <div class="form-options">
+            <span></span>
+            <button type="button" class="text-button" id="forgotPasswordBtn">
+              Forgot password?
+            </button>
+          </div>
+
+          <button class="primary-button" type="submit">Sign In</button>
+          <p id="loginMessage" class="form-message" aria-live="polite"></p>
+        </form>
+
+        <p class="switch-text">
+          Don't have an account?
+          <button type="button" class="text-button" id="showSignup">
+            Sign up
+          </button>
+        </p>
+      </div>
+
+      <div id="signupSection" hidden>
+        <p class="eyebrow">CREATE YOUR ACCOUNT</p>
+        <h2>Join the portal</h2>
+        <p class="muted">Register as a resident to request barangay services.</p>
+
+        <form id="signupForm">
+          <label for="signupUsername">Username</label>
+          <input id="signupUsername" name="username"
+                 type="text" minlength="3" maxlength="30"
+                 autocomplete="username" placeholder="Choose a username"
+                 required>
+
+          <label for="signupEmail">Email Address</label>
+          <input id="signupEmail" name="email"
+                 type="email" autocomplete="email"
+                 placeholder="Enter your email" required>
+
+          <label for="signupPassword">Password</label>
+          <input id="signupPassword" name="password"
+                 type="password" minlength="8" maxlength="72"
+                 autocomplete="new-password"
+                 placeholder="At least 8 characters" required>
+
+          <label for="confirmPassword">Confirm Password</label>
+          <input id="confirmPassword" name="confirmPassword"
+                 type="password" minlength="8" maxlength="72"
+                 autocomplete="new-password"
+                 placeholder="Re-enter your password" required>
+
+          <button class="primary-button" type="submit">Create Account</button>
+          <p id="signupMessage" class="form-message" aria-live="polite"></p>
+        </form>
+
+        <p class="switch-text">
+          Already have an account?
+          <button type="button" class="text-button" id="showLogin">
+            Sign in
+          </button>
+        </p>
+      </div>
+
+      <div id="forgotSection" hidden>
+        <p class="eyebrow">ACCOUNT HELP</p>
+        <h2>Forgot your password?</h2>
+        <p class="muted">
+          For this prototype, password recovery must be handled by the
+          barangay portal administrator.
+        </p>
+        <button type="button" class="primary-button" id="backToLogin">
+          Back to Sign In
+        </button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
